@@ -1,1 +1,37 @@
+load("@npm//@bazel/typescript:index.bzl", "ts_library")
+load("//:module_type.bzl", "MODULE")
+load("//:webpack_bundle.bzl", "webpack_bundle")
+
 exports_files(["tsconfig.json"])
+
+ts_library(
+    name = "bundle_contents",
+    srcs = [
+        "index.ts",
+    ],
+    deps = [
+      "//packages/package_bar",
+    ],
+    devmode_module = "umd",
+    prodmode_module = "umd",
+)
+
+ts_library(
+    name = "config",
+    srcs = [
+        "webpack.config.ts",
+    ],
+    deps = [
+      "//packages/package_foo",
+    ],
+    devmode_module = MODULE,
+    prodmode_module = MODULE,
+)
+
+webpack_bundle(
+    name = "bundle",
+    config = "webpack.config.ts",
+    deps = [":config"],
+    entry_point = "index.ts",
+    data = [":bundle_contents"],
+)
