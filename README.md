@@ -1,8 +1,8 @@
 # Example of ts_library module output failing to link
 
-To see the build failures when using the (`webpack_bundle` rule)[./webpack_bundle.bzl], do the following:
+To see the build failures when using the [`webpack_bundle` rule](./webpack_bundle.bzl), do the following:
 
-1. Update the (`MODULE` value in `module_type.bzl`)[./module_type.bzl] to one of `none` or `commonjs`.
+1. Update the [`MODULE` value in `module_type.bzl`](./module_type.bzl) to one of `none` or `commonjs`.
 2. Execute `bazel build //:bundle`
 
 ## What's going on?
