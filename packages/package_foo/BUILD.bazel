@@ -1,0 +1,15 @@
+load("@npm//@bazel/typescript:index.bzl", "ts_library")
+
+package(default_visibility=["//visibility:public"])
+
+ts_library(
+    name = "package_foo",
+    srcs = [
+        "src/index.ts",
+    ],
+    module_name = "foo",
+    module_root = "src",
+    deps = [
+      "//packages/package_bar",
+    ]
+)

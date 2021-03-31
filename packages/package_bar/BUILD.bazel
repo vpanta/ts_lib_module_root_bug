@@ -1,0 +1,12 @@
+load("@npm//@bazel/typescript:index.bzl", "ts_library")
+
+package(default_visibility=["//visibility:public"])
+
+ts_library(
+    name = "package_bar",
+    srcs = [
+        "src/bar.ts",
+    ],
+    module_name = "bar",
+    module_root = "src",
+)
