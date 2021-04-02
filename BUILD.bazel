@@ -1,5 +1,5 @@
 load("@npm//@bazel/typescript:index.bzl", "ts_library")
-load("//:module_type.bzl", "MODULE")
+load("//:module_type.bzl", "BUNDLE_MODULE", "MODULE")
 load("//:webpack_bundle.bzl", "webpack_bundle")
 
 exports_files(["tsconfig.json"])
@@ -12,8 +12,8 @@ ts_library(
     deps = [
       "//packages/package_bar",
     ],
-    devmode_module = "umd",
-    prodmode_module = "umd",
+    devmode_module = BUNDLE_MODULE,
+    prodmode_module = BUNDLE_MODULE,
 )
 
 ts_library(

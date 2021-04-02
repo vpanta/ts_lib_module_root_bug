@@ -1,5 +1,5 @@
 load("@npm//@bazel/typescript:index.bzl", "ts_library")
-load("//:module_type.bzl", "MODULE")
+load("//:module_type.bzl", "BUNDLE_MODULE")
 
 package(default_visibility=["//visibility:public"])
 
@@ -10,6 +10,6 @@ ts_library(
     ],
     module_name = "bar",
     module_root = "src",
-    devmode_module = MODULE,
-    prodmode_module = MODULE,
+    devmode_module = BUNDLE_MODULE,
+    prodmode_module = BUNDLE_MODULE,
 )
